@@ -1,0 +1,89 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+
+using namespace std;
+int main() {
+    srand(time(0));
+    int i = 0;
+    int tries = 0;
+    int guess;
+    int Lastguess = 0;
+    string response;
+
+    
+    cout << "Welcome to the number guessing game! Would you like to play? (Y/N):\n";
+
+
+    cin >>response;
+    if (response == "n"){
+        cout << "Thanks for playing!";
+        exit(0);
+    }  
+    else if (response == "N"){
+        cout << "Thanks for playing!";
+        exit(0);
+    }
+    else {}
+
+    do{
+
+    cout << "I am thinking of a number between 1 and 100... \n";
+
+    int num = rand() % 100 + 1;
+
+    // For now I have the number outputting, just to make testing easier.
+    cout << num;
+
+    do{
+        cout << "Your guess? (0=quit):";
+        cin >> guess;
+        tries ++;
+
+        if (guess == num){
+            cout << "Correct! You guessed my number of " << num << " in " << tries << " tries.\n\n\n";
+        }
+
+        int guessNum = abs(num - guess);
+        if (guessNum >= 75){
+            // most the other parts are functional, the main "colder or hotter" system is what needs the most work.
+        }
+
+
+        Lastguess = 0 + guess;
+
+        // I had the lastguess outputting for me, if it doesntm= make sense ofr you, feel free to remove it.
+        cout << Lastguess;
+        
+        if (guess == 0){
+            cout << "The correct answer is: " << num << ". You tried " << tries << " times. See you next time.\n\n\n";
+            guess = 0 + num;
+        }
+
+    }while (guess != num);
+
+    
+    cout << "Would you like to play again? (Y/N):";
+
+    tries = 0;
+
+    cin >> response;
+    if (response == "N"){
+        i++;
+        cout << "Thanks for playing!";
+    }
+    else if (response == "n"){
+        i++;
+        cout << "Thanks for playing!";
+    }
+    else {}
+
+    
+
+    }while (i != 1);
+
+    return 0;
+
+}
